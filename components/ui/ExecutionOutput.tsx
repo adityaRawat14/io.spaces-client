@@ -35,7 +35,7 @@ function ExecutionOutput({ output, isLoading, error }: ExecutionOutputProps) {
          <div className="flex flex-col gap-1">{
           outputErrorMessageFormatted?.map((msg)=>{
             return (
-          <span className="text-red-600">
+          <span key={msg} className="text-red-600">
           {formatBinaryString(msg)}
         </span>
 )
@@ -43,9 +43,9 @@ function ExecutionOutput({ output, isLoading, error }: ExecutionOutputProps) {
           }</div>
         ) : (
           output.response && <div className="flex flex-col gap-1">{
-            outputResponseMessageFormatted?.map((res)=>{
+            outputResponseMessageFormatted?.map((res,index)=>{
               return (
-                <span>{formatBinaryString(res)}</span>
+                <span key={index}>{formatBinaryString(res)}</span>
               )
             })
             }</div>

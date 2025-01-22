@@ -66,7 +66,7 @@ function ReactEditor({
       setLanguage("css");
       setEditorCode(cssCode);
     }
-  }, [selectedFile, cssCode, reactCode]);
+  }, [selectedFile, cssCode, reactCode,htmlCode]);
 
   return (
     <div className="w-full min-h-screen relative bg-gray-800 text-gray-300">
@@ -83,13 +83,13 @@ function ReactEditor({
         value={editorCode}
       />
 
-      <p className="absolute bottom-0 right-0 left-0  bg-yellow-300/20  py-3 px-2 text-white text-sm border-y-[2px] border-red-300 ">
-        <span className="font-semibold">Warning</span> :You can't use different
-        files for creating different components because this is just for
-        practicing react , if you want to work with complete react environment
-        just use react workspace instead of react playground by clicking on this
-        link
-      </p>
+<p className="absolute bottom-0 right-0 left-0 bg-yellow-300/20 py-3 px-2 text-white text-sm border-y-[2px] border-red-300 ">
+  <span className="font-semibold">Warning</span>: You can’t use different
+  files for creating different components because this is just for
+  practicing React. If you want to work with a complete React environment,
+  just use React workspace instead of React playground by clicking on this
+  link.
+</p>
     </div>
   );
 }

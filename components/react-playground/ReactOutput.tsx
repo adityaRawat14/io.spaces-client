@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { FiGlobe } from "react-icons/fi";
 import { IoReloadOutline } from "react-icons/io5";
 interface ReactOutputProps{
@@ -12,18 +12,16 @@ export default function ReactOutput({reactCode,cssCode}:ReactOutputProps) {
   const [error, setError] = useState<string | null>(null);
   const outputFrameRef=useRef<HTMLIFrameElement>(null);
 
+  const handleError = useCallback((e:ErrorEvent) => {
+    setError(error)
+  },[error,setError])
   useEffect(() => {
-    const handleError = (e:ErrorEvent) => {
-      setError(error)
-    };
  
-    
-    
     window.addEventListener('error', handleError);
     return () => {
       window.removeEventListener('error', handleError);
     };
-  }, []); 
+  }, [handleError]); 
 
 
 

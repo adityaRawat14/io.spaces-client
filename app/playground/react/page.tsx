@@ -17,17 +17,21 @@ function Page() {
   const [cssCode, setCssCode] = useState(``);
   const [reactCode, setReactCode] = useState(`
 
-// do not use any import statements , this is just for playing around react components
+    // do not use any import statements , this is just for playing around react components
 
-function App() {
-  const [name, setName] = React.useState('aman');
-  return (
-    <div>
-      <h1>Hello, React!</h1>
-      <p>{name}</p>
-    </div>
-  );
-}
+    function App() {
+    
+      const [counter, setCounter] = React.useState(0);
+      return (
+        <div>
+          <h1>Hello, React!</h1>
+          <p>{counter}</p>
+          <button onClick={()=>{setCounter(counter+1)}}> click </button>
+        </div>
+      );
+    }
+    
+    
 
 `);
 
